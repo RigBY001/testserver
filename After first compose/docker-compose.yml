@@ -16,13 +16,6 @@ services:
     networks:
       - dev
 
-  certbot:
-    image: certbot/certbot:latest
-    volumes:
-      - ./certbot/conf/:/etc/letsencrypt/
-      - ./certbot/www/:/var/www/certbot/
-  command: certonly --webroot -w /var/www/certbot/ --force-renewal --email skintap@gmail.com -d taptest.site --agree-tos
-
   frontend:
     build:
       context: ./frontend
